@@ -50,5 +50,3 @@ let jobData = [
     technologyExtent: 0.5,
   },
 ];
-
-console.log('Working');

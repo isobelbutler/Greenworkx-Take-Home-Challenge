@@ -10,6 +10,51 @@
   <body>
     <main>
       <h1>Matching Algorithm</h1>
+      <h2>Preferences:</h2>
+      <form id="contact-form">
+        <!-- <div class="form-control">
+        <label for="name">Full Name</label>
+        <input id="name" name="name" type="text" />
+    </div>
+    <div class="form-control">
+        <label for="email">Email Address</label>
+        <input id="email" name="email" type="email" />
+    </div> -->
+        <div class="form-control">
+          <label for="outdoorsPreference"
+            >How much would you like to work outdoors?</label
+          >
+          <input
+            type="number"
+            id="user-outdoors-pref"
+            name="outdoorsPreference"
+            min="1"
+            max="5"
+          /><br />
+          <label for="handsOnPreference"
+            >How much would you like to work with your hands?</label
+          >
+          <input
+            type="number"
+            id="user-hands-pref"
+            name="handsOnPreference"
+            min="1"
+            max="5"
+          /><br />
+
+          <label for="technologyPreference"
+            >How much would you like to work with technology?</label
+          >
+          <input
+            type="number"
+            id="user-tech-pref"
+            name="technologyPreference"
+            min="1"
+            max="5"
+          /><br />
+        </div>
+        <button class="btn" type="submit">Find a match!</button>
+      </form>
       <h2>Results:</h2>
       <div id="results-container"></div>
     </main>

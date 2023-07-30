@@ -1,22 +1,34 @@
-// User Data
-// This will collected via a form which I'll add after testing the algorithm.
-let userData = {
-  name: 'Fake Username',
-  email: 'email@email.com',
-  phone: '123-456-789',
-  currentSalary: 25000,
-  outdoorsPreference: 1,
-  technologyPreference: 3,
-  handsOnPreference: 1,
-};
+const form = document.getElementById('contact-form');
 
+form.addEventListener('submit', collectUserData);
+
+// Function to convert user preference scale of 1 - 5 to a rating scale of -1 to 1
 function convertUserScore(filterPreference) {
-  let convertedScore = ((filterPreference - 1) / 4) * 2 - 1;
-  return convertedScore;
+  return ((filterPreference - 1) / 4) * 2 - 1;
 }
 
-userData.outdoorsExtent = convertUserScore(userData.outdoorsPreference);
-userData.technologyExtent = convertUserScore(userData.technologyPreference);
-userData.handsOnExtent = convertUserScore(userData.handsOnPreference);
+// Function to collect user data from a form
+function collectUserData(event) {
+  event.preventDefault();
+  const formData = new FormData(event.target);
+  const userData = {};
+  formData.forEach((value, key) => (userData[key] = value));
+  console.log(userData);
 
-console.log(userData);
+  processUserPreferences(userData);
+  showResults(userData, 3);
+}
+
+function showResults(userData, numMatches) {
+  let rankedMatches = getTopMatches(jobData, userData, numMatches);
+  let resultsHTML = generateHTMLResults(rankedMatches);
+
+  resultsContainer.innerHTML = resultsHTML;
+}
+
+// Function to process user preferences and add extent scores to userData
+function processUserPreferences(userData) {
+  userData.outdoorsExtent = convertUserScore(userData.outdoorsPreference);
+  userData.technologyExtent = convertUserScore(userData.technologyPreference);
+  userData.handsOnExtent = convertUserScore(userData.handsOnPreference);
+}
