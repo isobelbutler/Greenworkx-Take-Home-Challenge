@@ -22,10 +22,9 @@ for (let i = 0; i < jobData.length; i++) {
   let totalMatchScore = 0;
 
   // Compare Scores
-  totalMatchScore += userOutdoorsScore - jobOutdoorsExtent;
-  totalMatchScore += userTechnologyScore - jobTechnologyExtent;
-  totalMatchScore += userHandsOnScore - jobHandsOnExtent;
-  totalMatchScore = Math.abs(totalMatchScore);
+  totalMatchScore += Math.abs(userOutdoorsScore - jobOutdoorsExtent);
+  totalMatchScore += Math.abs(userTechnologyScore - jobTechnologyExtent);
+  totalMatchScore += Math.abs(userHandsOnScore - jobHandsOnExtent);
 
   // Add the job and the totalMatchScore to userJobMatches object
   userJobMatches.push({ jobName, totalMatchScore });

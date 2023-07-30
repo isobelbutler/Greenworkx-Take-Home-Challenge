@@ -6,8 +6,8 @@ let userData = {
   phone: '123-456-789',
   currentSalary: 25000,
   outdoorsPreference: 1,
-  technologyPreference: 5,
-  handsOnPreference: 5,
+  technologyPreference: 3,
+  handsOnPreference: 1,
 };
 
 function convertUserScore(filterPreference) {
