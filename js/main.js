@@ -2,6 +2,7 @@
 // let userOutdoorsScore = userData.convertedOutdoorsPreference;
 // let userTechnologyScore = userData.convertedTechnologyPreference;
 // let userHandsOnScore = userData.convertedHandsOnPreference;
+let resultsContainer = document.getElementById('results-container');
 
 // Top Matches Variable
 let userJobMatches = [];
@@ -32,8 +33,18 @@ for (let i = 0; i < jobData.length; i++) {
 
 console.log(userJobMatches);
 
-const rankedMatches = userJobMatches.sort(
-  (a, b) => a.totalMatchScore - b.totalMatchScore
-);
+const rankedMatches = userJobMatches
+  .sort((a, b) => a.totalMatchScore - b.totalMatchScore)
+  .slice(0, 3);
 
-console.log(rankedMatches.slice(0, 3));
+console.log(rankedMatches);
+let resultsHTML = '';
+
+function addHTMLResults() {
+  for (let i = 0; i < rankedMatches.length; i++) {
+    resultsHTML += `<p>${i + 1}. ${rankedMatches[i].jobName}</p>`;
+  }
+}
+addHTMLResults();
+
+resultsContainer.innerHTML = resultsHTML;
