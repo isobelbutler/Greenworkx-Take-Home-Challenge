@@ -5,7 +5,18 @@ let userData = {
   email: 'email@email.com',
   phone: '123-456-789',
   currentSalary: 25000,
-  outdoorsPreference: -1,
-  technologyPreference: 1,
-  handsOnPreference: 0,
+  outdoorsPreference: 1,
+  technologyPreference: 5,
+  handsOnPreference: 5,
 };
+
+function convertUserScore(filterPreference) {
+  let convertedScore = ((filterPreference - 1) / 4) * 2 - 1;
+  return convertedScore;
+}
+
+userData.outdoorsExtent = convertUserScore(userData.outdoorsPreference);
+userData.technologyExtent = convertUserScore(userData.technologyPreference);
+userData.handsOnExtent = convertUserScore(userData.handsOnPreference);
+
+console.log(userData);

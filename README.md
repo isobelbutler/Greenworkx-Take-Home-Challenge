@@ -58,6 +58,8 @@ RETURN the names of the jobs in userJobMatches with the top three highest totalM
 END
 -->
 
+Thoughts - Convert user scores so that they range from -1 to 1. Then see difference between job score and user score and put to MatchScore. Then the closest match will be the lowest number.
+
 ## Future improvements to the Algorithm:
 
 - Have weightings for each filter. For example, if an attribute is more important to the user, add 2 to the totalMatch score instead of 1. Alternatively, allow users to select a scale of importance for each attribute, and then multiply the 'add 1 to totalMatch' by that level of importance.
