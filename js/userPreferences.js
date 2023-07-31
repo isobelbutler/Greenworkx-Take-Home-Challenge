@@ -1,8 +1,4 @@
-// Get the form element with the ID 'contact-form'
-const form = document.getElementById('contact-form');
-
-// Attach an event listener to the form on 'submit' event, calling the 'collectUserData' function
-form.addEventListener('submit', collectUserData);
+import { showResults } from './resultsRendering.js';
 
 // Function to convert user preference scale of 1 - 5 to a rating scale of -1 to 1
 function convertUserScore(filterPreference) {
@@ -23,17 +19,6 @@ function collectUserData(event) {
   showResults(userData, 3); // Show the top three job matches based on user data
 }
 
-// Function to display the results of top job matches
-function showResults(userData, numMatches) {
-  // Get the top job matches based on 'userData' using the 'getTopMatches' function
-  let rankedMatches = getTopMatches(jobData, userData, numMatches);
-  // Generate the HTML for displaying the top job matches
-  let resultsHTML = generateHTMLResults(rankedMatches);
-  resultsContainer.innerHTML = resultsHTML; // Display the results in the 'resultsContainer' element
-  console.log('The top three job matches are rendered on the DOM');
-  console.log('Success! We found our matches!');
-}
-
 // Function to process user preferences and add extent scores to 'userData'
 function processUserPreferences(userData) {
   // Convert user preference scores to a scale of -1 to 1 and add them to 'userData'
@@ -44,3 +29,6 @@ function processUserPreferences(userData) {
     'All scores have been converted to a -1 to 1 scale and added to the userData object'
   );
 }
+
+// Export functions to be used in other files
+export { convertUserScore, processUserPreferences, collectUserData };
