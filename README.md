@@ -53,13 +53,21 @@ I decided the algorithm would compare the difference between each user score and
 
 BEGIN
 When form is submitted: Process user inputs and add to userData object.
+
 Convert all the user data to the same scale as the role data.
+
 FOR i = numbers of roles
+
 Calculate the difference between user preference and corresponding role data. The difference = match score.
+
 Push {Job name[i]: Match Score} to empty array called userJobMatches.
+
 NEXT i
+
 SORT and SLICE userJobMatches
+
 PRINT userJobMatches
+
 END
 
 ## Future improvements to the Algorithm:
