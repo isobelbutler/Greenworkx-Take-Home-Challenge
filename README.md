@@ -52,6 +52,7 @@ Then processUserPrefences() is called which calls convertUserScore() on each use
 I decided the algorithm would compare the difference between each user score and the role data, and would then sum the differences. The role with the lowest total difference would be the top recommendation for the user, and so on. I did think that maybe it's not neccessary to convert the user data to the same scale as the role data but I do quite like that they're on the same scale, what do you think?
 
 BEGIN
+
 When form is submitted: Process user inputs and add to userData object.
 
 Convert all the user data to the same scale as the role data.
